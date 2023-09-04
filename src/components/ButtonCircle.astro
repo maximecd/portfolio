@@ -1,13 +1,22 @@
 ---
-const { id, label } = Astro.props
+const { id, label, type, href } = Astro.props
 ---
 
-<button id={id} aria-label={label}>
-  <slot />
-</button>
+{
+  type === 'link' ? (
+    <a id={id} aria-label={label} href={href}>
+      <slot />
+    </a>
+  ) : (
+    <button id={id} aria-label={label}>
+      <slot />
+    </button>
+  )
+}
 
 <style lang="scss">
-  button {
+  button,
+  a {
     display: grid;
     place-items: center;
     padding: 0;
