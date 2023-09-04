@@ -9,58 +9,86 @@ import MagaliCard from './Magali/MagaliCard.astro'
       <Card href="/work/galerie-magali-martin">
         <MagaliCard />
       </Card>
-      <!-- <Card>
-        <MagaliCard />
-      </Card> -->
+      <Card href="/work/galerie-magali-martin">TEST</Card>
     </ul>
   </div>
   <nav class="wrapper">
-    <button id="work-prev">←</button>
-    <button id="work-next">→</button>
+    <div class="arrows">
+      <button id="work-prev">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"></path></svg
+        >
+      </button>
+      <button id="work-next">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg
+        >
+      </button>
+    </div>
   </nav>
 </div>
 
 <script>
-  const scrollContainer: HTMLDivElement | null = document.querySelector('.scroll-container')
-  const prev: HTMLButtonElement | null = document.querySelector('#work-prev')
-  const next: HTMLButtonElement | null = document.querySelector('#work-next')
+  document.addEventListener('astro:page-load', () => {
+    const scrollContainer: HTMLDivElement | null = document.querySelector('.scroll-container')
+    const prev: HTMLButtonElement | null = document.querySelector('#work-prev')
+    const next: HTMLButtonElement | null = document.querySelector('#work-next')
 
-  if (!scrollContainer || !prev || !next) {
-    throw new Error('Missing elements')
-  }
-
-  let currentItem = 0
-
-  let firstItem: HTMLElement | null = scrollContainer.querySelector('.project')
-
-  if (!firstItem) {
-    throw new Error('Missing elements')
-  }
-
-  const itemWidth = firstItem.offsetWidth
-
-  const manageScroll = (direction: 'left' | 'right') => {
-    scrollContainer.style.scrollSnapType = 'none'
-    scrollContainer.style.scrollBehavior = 'smooth'
-
-    if (direction === 'left') {
-      scrollContainer.scrollLeft -= itemWidth + 24
-    } else if (direction === 'right') {
-      scrollContainer.scrollLeft += itemWidth + 24
+    if (!scrollContainer || !prev || !next) {
+      throw new Error('Missing elements')
     }
 
-    scrollContainer.addEventListener('scrollend', () => {
-      scrollContainer.style.scrollSnapType = 'x mandatory'
-      scrollContainer.style.scrollBehavior = 'auto'
+    let firstItem: HTMLElement | null = scrollContainer.querySelector('.project')
+
+    if (!firstItem) {
+      throw new Error('Missing elements')
+    }
+
+    const itemWidth = firstItem.offsetWidth
+
+    const manageScroll = (direction: 'left' | 'right') => {
+      scrollContainer.style.scrollSnapType = 'none'
+      scrollContainer.style.scrollBehavior = 'smooth'
+
+      if (direction === 'left') {
+        scrollContainer.scrollLeft -= itemWidth + 24
+      } else if (direction === 'right') {
+        scrollContainer.scrollLeft += itemWidth + 24
+      }
+
+      scrollContainer.addEventListener('scrollend', () => {
+        scrollContainer.style.scrollSnapType = 'x mandatory'
+        scrollContainer.style.scrollBehavior = 'auto'
+
+        scrollContainer.removeEventListener('scrollend', () => {})
+      })
+    }
+
+    prev.addEventListener('click', () => {
+      manageScroll('left')
     })
-  }
 
-  prev.addEventListener('click', () => {
-    manageScroll('left')
-  })
-
-  next.addEventListener('click', () => {
-    manageScroll('right')
+    next.addEventListener('click', () => {
+      manageScroll('right')
+    })
   })
 </script>
 
@@ -75,7 +103,26 @@ import MagaliCard from './Magali/MagaliCard.astro'
     margin-top: 1.6rem;
     display: flex;
     justify-content: flex-end;
+  }
+
+  .arrows {
+    display: flex;
     gap: 1.6rem;
+    button {
+      display: grid;
+      place-items: center;
+      width: 4rem;
+      height: 4rem;
+      border: none;
+      background-color: rgb(238, 238, 238);
+      border-radius: 99px;
+      color: var(--clr-text-light);
+      cursor: pointer;
+      &:hover {
+        background-color: rgb(212, 212, 212);
+        color: var(--clr-text);
+      }
+    }
   }
 
   .scroll-container {
@@ -87,7 +134,7 @@ import MagaliCard from './Magali/MagaliCard.astro'
     }
     scrollbar-width: none;
 
-    @media (min-width: 900px) {
+    @media (min-width: 768px) {
       scroll-padding: calc((100vw - 900px) / 2);
     }
   }
@@ -98,7 +145,7 @@ import MagaliCard from './Magali/MagaliCard.astro'
     grid-auto-flow: column;
     gap: 1.6rem;
     padding-inline: 2.4rem;
-    @media (min-width: 900px) {
+    @media (min-width: 768px) {
       padding-inline: calc((100vw - 900px) / 2);
     }
   }
