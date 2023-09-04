@@ -10,7 +10,7 @@ import ButtonCircle from '../../components/ButtonCircle.astro'
 <Layout title="Galerie Magali Martin | Maxime Condaminat - Frontend Developper">
   <main transition:name="gmm-container" style="view-transition-name: gmm-container;">
     <div class="container">
-      <ButtonCircle id="back" type="link" href="/" label="Go Back">
+      <ButtonCircle id="back" label="Go Back">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -32,6 +32,22 @@ import ButtonCircle from '../../components/ButtonCircle.astro'
     </div>
   </main>
 </Layout>
+
+<script>
+  function setupBack() {
+    const back: HTMLButtonElement | null = document.querySelector('#back')
+    if (!back) {
+      throw new Error('No back button found')
+    }
+    back.addEventListener('click', () => {
+      window.history.back()
+    })
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    setupBack()
+  })
+</script>
 
 <style lang="scss">
   .container {
