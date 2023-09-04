@@ -68,10 +68,14 @@ import MagaliCard from './Magali/MagaliCard.astro'
       scrollContainer.style.scrollSnapType = 'none'
       scrollContainer.style.scrollBehavior = 'smooth'
 
+      const gap =
+        parseInt(getComputedStyle(scrollContainer).getPropertyValue('--gap').slice(0, -3)) *
+        parseFloat(getComputedStyle(document.documentElement).fontSize)
+
       if (direction === 'left') {
-        scrollContainer.scrollLeft -= itemWidth + 24
+        scrollContainer.scrollLeft -= itemWidth + gap
       } else if (direction === 'right') {
-        scrollContainer.scrollLeft += itemWidth + 24
+        scrollContainer.scrollLeft += itemWidth + gap
       }
 
       scrollContainer.addEventListener('scrollend', () => {
@@ -133,9 +137,13 @@ import MagaliCard from './Magali/MagaliCard.astro'
       display: none;
     }
     scrollbar-width: none;
+    --gap: 2.4rem;
 
     @media (min-width: 768px) {
+      // for the scroll padding
+      // i want the item at the center of page (900px wrap)
       scroll-padding: calc((100vw - 900px) / 2);
+      --gap: 7.2rem;
     }
   }
 
@@ -143,8 +151,10 @@ import MagaliCard from './Magali/MagaliCard.astro'
     width: fit-content;
     display: grid;
     grid-auto-flow: column;
-    gap: 1.6rem;
-    padding-inline: 2.4rem;
+    padding-inline: var(--gap);
+
+    gap: var(--gap);
+
     @media (min-width: 768px) {
       padding-inline: calc((100vw - 900px) / 2);
     }
