@@ -47,6 +47,8 @@ import MagaliCard from './Magali/MagaliCard.astro'
 </div>
 
 <script>
+  import { animate, scroll } from 'motion'
+
   document.addEventListener('astro:page-load', () => {
     const scrollContainer: HTMLDivElement | null = document.querySelector('.scroll-container')
     const prev: HTMLButtonElement | null = document.querySelector('#work-prev')
@@ -65,25 +67,21 @@ import MagaliCard from './Magali/MagaliCard.astro'
     const itemWidth = firstItem.offsetWidth
 
     const manageScroll = (direction: 'left' | 'right') => {
-      scrollContainer.style.scrollSnapType = 'none'
-      scrollContainer.style.scrollBehavior = 'smooth'
-
       const gap =
         parseInt(getComputedStyle(scrollContainer).getPropertyValue('--gap').slice(0, -3)) *
         parseFloat(getComputedStyle(document.documentElement).fontSize)
 
       if (direction === 'left') {
-        scrollContainer.scrollLeft -= itemWidth + gap
+        scrollContainer.scrollTo({
+          left: scrollContainer.scrollLeft - itemWidth - gap,
+          behavior: 'smooth'
+        })
       } else if (direction === 'right') {
-        scrollContainer.scrollLeft += itemWidth + gap
+        scrollContainer.scrollTo({
+          left: scrollContainer.scrollLeft + itemWidth + gap,
+          behavior: 'smooth'
+        })
       }
-
-      scrollContainer.addEventListener('scrollend', () => {
-        scrollContainer.style.scrollSnapType = 'x mandatory'
-        scrollContainer.style.scrollBehavior = 'auto'
-
-        scrollContainer.removeEventListener('scrollend', () => {})
-      })
     }
 
     prev.addEventListener('click', () => {
