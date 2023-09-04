@@ -1,0 +1,31 @@
+---
+const { href } = Astro.props
+---
+
+<a class="button-link" href={href}>
+  <slot />
+</a>
+
+<style lang="scss">
+  a {
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    padding: 1.6rem 2.4rem;
+    background-color: var(--clr-link-transparent);
+    border-radius: 1.2rem;
+    gap: 1.2rem;
+    align-items: center;
+    // transition: var(--transition-default);
+
+    &:hover {
+      background-color: var(--clr-link-semi);
+    }
+
+    & > :global(svg) {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+</style>

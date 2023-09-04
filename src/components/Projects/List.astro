@@ -1,0 +1,105 @@
+---
+import Card from './Card.astro'
+import MagaliCard from './Magali/MagaliCard.astro'
+---
+
+<div class="projects">
+  <div class="scroll-container">
+    <ul class="item-container">
+      <Card href="/work/galerie-magali-martin">
+        <MagaliCard />
+      </Card>
+      <!-- <Card>
+        <MagaliCard />
+      </Card> -->
+    </ul>
+  </div>
+  <nav class="wrapper">
+    <button id="work-prev">←</button>
+    <button id="work-next">→</button>
+  </nav>
+</div>
+
+<script>
+  const scrollContainer: HTMLDivElement | null = document.querySelector('.scroll-container')
+  const prev: HTMLButtonElement | null = document.querySelector('#work-prev')
+  const next: HTMLButtonElement | null = document.querySelector('#work-next')
+
+  if (!scrollContainer || !prev || !next) {
+    throw new Error('Missing elements')
+  }
+
+  let currentItem = 0
+
+  let firstItem: HTMLElement | null = scrollContainer.querySelector('.project')
+
+  if (!firstItem) {
+    throw new Error('Missing elements')
+  }
+
+  const itemWidth = firstItem.offsetWidth
+
+  const manageScroll = (direction: 'left' | 'right') => {
+    scrollContainer.style.scrollSnapType = 'none'
+    scrollContainer.style.scrollBehavior = 'smooth'
+
+    if (direction === 'left') {
+      scrollContainer.scrollLeft -= itemWidth + 24
+    } else if (direction === 'right') {
+      scrollContainer.scrollLeft += itemWidth + 24
+    }
+
+    scrollContainer.addEventListener('scrollend', () => {
+      scrollContainer.style.scrollSnapType = 'x mandatory'
+      scrollContainer.style.scrollBehavior = 'auto'
+    })
+  }
+
+  prev.addEventListener('click', () => {
+    manageScroll('left')
+  })
+
+  next.addEventListener('click', () => {
+    manageScroll('right')
+  })
+</script>
+
+<style lang="scss">
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav {
+    margin-top: 1.6rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.6rem;
+  }
+
+  .scroll-container {
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 2.4rem;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+
+    @media (min-width: 900px) {
+      scroll-padding: calc((100vw - 900px) / 2);
+    }
+  }
+
+  .item-container {
+    width: fit-content;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1.6rem;
+    padding-inline: 2.4rem;
+    @media (min-width: 900px) {
+      padding-inline: calc((100vw - 900px) / 2);
+    }
+  }
+</style>

@@ -1,24 +1,297 @@
 ---
+import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
+import me from '../assets/images/me.jpg'
+import ButtonLink from '../components/ButtonLink.astro'
+import List from '../components/Projects/List.astro'
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    <section class="px-6">
+    <section class="wrapper hero">
       <h1>
         maxime
-        <span class="block">condaminat</span>
+        <span>condaminat</span>
       </h1>
       <p>
         Hi 👋, I’m Maxime Condaminat, a frontend developer based in France. I’m here to make the web
-        a more user-friendly and accessible place. I am currently looking for a new role as a
-        frontend developer.
-        <a href="#" class="underline">Hire me ?</a>
+        a more user-friendly and accessible place.
+      </p>
+      <p>
+        I am currently looking for a new role as a frontend developer.
+        <a href="#">Hire me ?</a>
       </p>
     </section>
     <section>
-      <h2>selected work</h2>
-      <!-- Swiperjs -->
+      <h2 class="wrapper">selected work</h2>
+      <List />
+    </section>
+    <section class="wrapper past-exp">
+      <h2>past experiences</h2>
+      <ul class="past-exp__list">
+        <li>
+          <span class="past-exp__date">sept. 2022 - aug. 2023</span>
+          <h3>Fullstack Web Developer</h3>
+          <h4>Nexi Conseils</h4>
+          <p>
+            Developed, maintained and shipped features on a 2000+ users SaaS. Built 6 fully
+            customizable WordPress themes from scratch.
+          </p>
+          <ul class="techs">
+            <li>Laravel</li>
+            <li>ReactJS</li>
+            <li>WordPress</li>
+            <li>Sass</li>
+          </ul>
+        </li>
+        <li>
+          <span class="past-exp__date">jan. 2022 - feb. 2022</span>
+          <h3>Web Developer</h3>
+          <h4>ISAO Communication</h4>
+          <p>Design, built and shipped a fully customizable website for a communication agency.</p>
+          <ul class="techs">
+            <li>Figma</li>
+            <li>WordPress</li>
+            <li>Deployement</li>
+          </ul>
+        </li>
+        <li>
+          <span class="past-exp__date">may 2021 - june 2021</span>
+          <h3>PHP Developer</h3>
+          <h4>L'amicale des cadres d'Alstom</h4>
+          <p>
+            Developed features for a native MVC PHP application, using sprint agile methodologies
+          </p>
+          <ul class="techs">
+            <li>PHP</li>
+            <li>MySQL</li>
+            <li>Bootstrap</li>
+          </ul>
+        </li>
+      </ul>
+      <ButtonLink href="#">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-file-spreadsheet"
+          ><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+          ></path><polyline points="14 2 14 8 20 8"></polyline><path d="M8 13h2"></path><path
+            d="M8 17h2"></path><path d="M14 13h2"></path><path d="M14 17h2"></path></svg
+        >
+         view my full résumé
+      </ButtonLink>
+    </section>
+    <section class="about wrapper">
+      <h2>about me</h2>
+      <Image src={me} alt="Maxime Condaminat" />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Gravida rutrum quisque non tellus orci ac.
+      </p>
+      <p>
+        Massa placerat duis ultricies lacus sed turpis tincidunt id. Enim blandit volutpat maecenas
+        volutpat blandit aliquam etiam. Gravida dictum fusce ut placerat orci nulla pellentesque
+        dignissim enim. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim.
+      </p>
+      <p>
+        Consectetur adipiscing elit duis tristique. Vulputate mi sit amet mauris commodo quis
+        imperdiet. Quam nulla porttitor massa id neque aliquam vestibulum morbi blandit. Vitae
+        turpis massa sed elementum tempus egestas sed. Elementum tempus egestas sed sed. Morbi
+        blandit cursus risus at. Ultricies leo integer malesuada nunc vel.
+      </p>
+    </section>
+    <section class="contact wrapper">
+      <h2>contact</h2>
+      <p>
+        Lorem ipsum dolor sit amet ? consectetur adipiscing elit, sed do eiusmod tempor incididunt ?
+      </p>
+      <ButtonLink href="#">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-send"
+          ><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg
+        >
+         get in touch
+      </ButtonLink>
+      <p>You can also find me here :</p>
+      <ul>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-linkedin"
+            ><path
+              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+            ></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"
+            ></circle></svg
+          >
+          <a href="https://linkedin.com/in/maximecondaminat" target="_blank"
+            >linkedin.com/in/maximecondaminat</a
+          >
+        </li>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-github"
+            ><path
+              d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+            ></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg
+          >
+          <a href="https://github.com/maximecd" target="_blank">github.com/maximecd</a>
+        </li>
+      </ul>
     </section>
   </main>
 </Layout>
+
+<style lang="scss">
+  main {
+    background-color: var(--clr-white);
+    color: var(--clr-text);
+  }
+
+  section {
+    margin-bottom: 6.4rem;
+  }
+
+  h2 {
+    font-family: var(--ff-headings);
+    font-size: 1.8rem;
+    margin-bottom: 1em;
+  }
+
+  .hero {
+    margin-top: 6.4rem;
+
+    h1 {
+      font-family: var(--ff-headings);
+      font-size: 3.2rem;
+      margin-bottom: 1em;
+      line-height: normal;
+      & > span {
+        display: block;
+        color: var(--clr-text-light);
+      }
+    }
+
+    p:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  .past-exp {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    h3 {
+      font-size: 1.6rem;
+      line-height: normal;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    h4 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: normal;
+      margin-bottom: 1.6rem;
+      color: var(--clr-text-light);
+    }
+    &__list {
+      & > li {
+        margin-bottom: 3.2rem;
+      }
+    }
+    &__date {
+      line-height: normal;
+      color: var(--clr-text-lighter);
+      margin-bottom: 2px;
+      font-size: 1.2rem;
+    }
+    p {
+      margin-bottom: 1em;
+    }
+    .techs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      li {
+        color: #e17a12;
+        font-size: 1.2rem;
+        font-weight: 600;
+        background-color: rgba(225, 122, 18, 0.12);
+        border-radius: 99px;
+        padding: 0.4rem 1.2rem;
+        line-height: 1.35;
+      }
+    }
+  }
+
+  .about {
+    img {
+      width: 50%;
+      border-radius: 1.2rem;
+      margin-bottom: 1em;
+    }
+    p:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  .contact {
+    p {
+      margin-bottom: 1em;
+    }
+    :global(.button-link) {
+      margin-bottom: 1em;
+    }
+    ul {
+      padding: 0;
+      color: var(--clr-link);
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      li {
+        display: flex;
+        gap: 1.2rem;
+        list-style-type: none;
+        align-items: center;
+        svg {
+          width: 1.8rem;
+          height: 1.8rem;
+        }
+      }
+    }
+  }
+</style>

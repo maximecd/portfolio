@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets'
+import Layout from '../../layouts/Layout.astro'
+import gmm1 from '../../assets/images/gmm/gmm1.jpg'
+import gmm2 from '../../assets/images/gmm/gmm2.jpg'
+---
+
+<Layout title="Work: Galerie Magali Martin">
+  <main transition:name="gmm-container" style="view-transition-name: gmm-container;">
+    <a href="/">back</a>
+    <h1>Galerie Magali Martin</h1>
+    <div class="imgs">
+      <Image src={gmm1} alt="Galerie Magali Martin" />
+      <Image src={gmm2} alt="Galerie Magali Martin" />
+    </div>
+  </main>
+</Layout>
+
+<style lang="scss">
+  h1 {
+    font-family: 'Audrey';
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 4rem;
+  }
+  main {
+    background-color: #07002c;
+    min-height: 100vh;
+  }
+</style>

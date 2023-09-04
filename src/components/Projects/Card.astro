@@ -1,0 +1,29 @@
+---
+const { href } = Astro.props
+---
+
+<li class="item">
+  <a href={href}>
+    <article class="project">
+      <slot />
+    </article>
+  </a>
+</li>
+
+<style lang="scss">
+  a {
+    display: flex;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .item {
+    scroll-snap-align: start;
+  }
+  .project {
+    width: min(90rem, 100vw - 4.8rem);
+    aspect-ratio: 16/9;
+    border-radius: 1.2rem;
+    overflow: hidden;
+  }
+</style>
