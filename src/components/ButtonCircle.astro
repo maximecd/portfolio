@@ -1,0 +1,33 @@
+---
+const { id, label } = Astro.props
+---
+
+<button id={id} aria-label={label}>
+  <slot />
+</button>
+
+<style lang="scss">
+  button {
+    display: grid;
+    place-items: center;
+    padding: 0;
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    background-color: rgb(238, 238, 238);
+    border-radius: 99px;
+    color: var(--clr-text-light);
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgb(212, 212, 212);
+        color: var(--clr-text);
+      }
+    }
+    &:active {
+      background-color: rgb(212, 212, 212);
+      color: var(--clr-text);
+    }
+  }
+</style>
