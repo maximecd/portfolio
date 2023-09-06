@@ -52,19 +52,13 @@ import WebracketsCard from './Webrackets/WebracketsCard.astro'
 
 <script>
   document.addEventListener('astro:page-load', () => {
-    const scrollContainer: HTMLDivElement | null = document.querySelector('.scroll-container')
-    const prev: HTMLButtonElement | null = document.querySelector('#work-prev')
-    const next: HTMLButtonElement | null = document.querySelector('#work-next')
+    const scrollContainer: HTMLDivElement = document.querySelector<HTMLDivElement>(
+      '.scroll-container'
+    ) as HTMLDivElement
+    const prev: HTMLButtonElement = document.querySelector('#work-prev') as HTMLButtonElement
+    const next: HTMLButtonElement = document.querySelector('#work-next') as HTMLButtonElement
 
-    if (!scrollContainer || !prev || !next) {
-      throw new Error('Missing elements')
-    }
-
-    let firstItem: HTMLElement | null = scrollContainer.querySelector('.project')
-
-    if (!firstItem) {
-      throw new Error('Missing elements')
-    }
+    let firstItem: HTMLElement = scrollContainer.querySelector<HTMLElement>('.project') as HTMLElement
 
     const itemWidth = firstItem.offsetWidth
 
