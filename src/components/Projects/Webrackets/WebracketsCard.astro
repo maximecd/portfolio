@@ -1,0 +1,64 @@
+---
+import { Image, getImage } from 'astro:assets'
+import grid from '../../../assets/images/webrackets/grille.svg'
+import '@fontsource/righteous'
+
+const optimizedGrid = await getImage({
+  src: grid
+})
+---
+
+<div class="query-container">
+  <div
+    class="container"
+    transition:name="webrackets-container"
+    style={`view-transition-name: webrackets-container; background-image: url('${optimizedGrid.src}');`}
+    transition:animate="slide"
+  >
+    <div class="imgs"></div>
+    <h3>
+      Webrackets<br />
+       Agency
+    </h3>
+  </div>
+</div>
+<style lang="scss">
+  .query-container {
+    container-type: inline-size;
+    height: 100%;
+  }
+  .container {
+    background-color: #fffad9;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 6.6cqi 5.5cqi;
+  }
+  h3 {
+    font-size: 9cqi;
+    line-height: 110%;
+    text-transform: lowercase;
+    color: #29314d;
+    font-weight: 400;
+    font-family: 'Righteous', sans-serif;
+    text-align: right;
+  }
+  img {
+    width: 40cqi;
+    object-fit: contain;
+    height: fit-content;
+    box-shadow: 0px 2px 10px 1px rgba(255, 255, 255, 0.1);
+  }
+  .imgs {
+    display: flex;
+    flex-direction: column;
+    :last-child {
+      margin-top: -7cqi;
+      margin-left: 4cqi;
+    }
+    align-self: center;
+  }
+</style>

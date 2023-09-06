@@ -1,14 +1,20 @@
 ---
-import { Image } from 'astro:assets'
+import { Image, getImage } from 'astro:assets'
 import Layout from '../../layouts/Layout.astro'
-import gmm1 from '../../assets/images/gmm/gmm1.jpg'
-import gmm2 from '../../assets/images/gmm/gmm2.jpg'
-import '../../assets/fonts/audrey.css'
 import ButtonCircle from '../../components/ButtonCircle.astro'
+import grid from '../../assets/images/webrackets/grille.svg'
+import '@fontsource/righteous'
+
+const optimizedGrid = await getImage({
+  src: grid
+})
 ---
 
-<Layout title="Galerie Magali Martin | Maxime Condaminat - Frontend Developper">
-  <main transition:name="gmm-container" style="view-transition-name: gmm-container;">
+<Layout title="Webrackets Agency | Maxime Condaminat - Frontend Developper">
+  <main
+    transition:name="webrackets-container"
+    style=`view-transition-name: webrackets-container;  background-image: url('${optimizedGrid.src}');`
+  >
     <div class="container">
       <ButtonCircle type="link" label="Go Back" href="/">
         <svg
@@ -24,11 +30,7 @@ import ButtonCircle from '../../components/ButtonCircle.astro'
           class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"></path></svg
         >
       </ButtonCircle>
-      <h1>Galerie Magali Martin</h1>
-      <div class="imgs">
-        <Image src={gmm1} alt="Galerie Magali Martin" />
-        <Image src={gmm2} alt="Galerie Magali Martin" />
-      </div>
+      <h1>Webrackets Agency</h1>
     </div>
   </main>
 </Layout>
@@ -39,14 +41,14 @@ import ButtonCircle from '../../components/ButtonCircle.astro'
   }
 
   h1 {
-    font-family: 'Audrey';
-    color: white;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 4rem;
+    font-family: 'Righteous';
+    text-transform: lowercase;
   }
+
   main {
-    background-color: #07002c;
+    background-color: #fffad9;
     min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 </style>
