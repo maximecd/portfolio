@@ -4,13 +4,11 @@ import Layout from '../../layouts/Layout.astro'
 import gmm1 from '../../assets/images/gmm/gmm1.jpg'
 import gmm2 from '../../assets/images/gmm/gmm2.jpg'
 import '../../assets/fonts/audrey.css'
-import ButtonCircle from '../../components/ButtonCircle.astro'
-import PageView from '../../components/Projects/PageView.astro'
 ---
 
 <Layout title="Galerie Magali Martin | Maxime Condaminat - Frontend Developper">
-  <main style="view-transition-name: gmm-container;">
-    <div class="container">
+  <main transition:name="gmm-container">
+    <div class="container wrapper">
       <header>
         <a id="back" href="/">
           <svg
@@ -28,17 +26,71 @@ import PageView from '../../components/Projects/PageView.astro'
            home
         </a>
       </header>
-      <h1>Galerie Magali Martin</h1>
-      <div class="imgs">
-        <Image src={gmm1} alt="Galerie Magali Martin" />
-        <Image src={gmm2} alt="Galerie Magali Martin" />
+      <div class="grid">
+        <div class="site-info">
+          <h1>
+            <a href="https://galeriemagalimartin.fr" target="_blank">Galerie<br />Magali<br />Martin</a>
+          </h1>
+        </div>
+        <div class="details"></div>
       </div>
-      <a href="https://galeriemagalimartin.fr" target="_blank">Visit website</a>
+      <h1></h1>
+    </div>
+    <div class="imgs">
+      <Image transition:name="gmm-img-1" src={gmm1} alt="Galerie Magali Martin" />
+      <Image transition:name="gmm-img-2" src={gmm2} alt="Galerie Magali Martin" />
     </div>
   </main>
 </Layout>
 
 <style lang="scss">
+  main {
+    background-color: #07002c;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: hidden;
+  }
+
+  header {
+    margin-bottom: 1em;
+  }
+
+  .container {
+    width: 100%;
+    padding-top: 3.6rem;
+  }
+
+  .grid {
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  h1 {
+    font-family: 'Audrey';
+
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 4rem;
+
+    a {
+      color: white;
+    }
+  }
+
+  .imgs {
+    max-width: 1500px;
+    margin-inline: auto;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    transform: translateY(20%);
+  }
+
   a#back {
     padding: 0;
     display: inline-flex;
@@ -68,20 +120,5 @@ import PageView from '../../components/Projects/PageView.astro'
       background-color: rgb(212, 212, 212);
       color: var(--clr-text);
     }
-  }
-
-  main {
-    background-color: #07002c;
-  }
-  .container {
-    padding: 2.4rem;
-  }
-
-  h1 {
-    font-family: 'Audrey';
-    color: white;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 4rem;
   }
 </style>

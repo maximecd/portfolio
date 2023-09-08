@@ -1,0 +1,33 @@
+---
+import Card from './Card.astro'
+import List from './List.svelte'
+import MagaliCard from './Magali/MagaliCard.astro'
+import WebracketsCard from './Webrackets/WebracketsCard.astro'
+---
+
+<List client:visible>
+  <ul class="item-container">
+    <Card href="/work/galerie-magali-martin">
+      <MagaliCard />
+    </Card>
+    <Card href="/work/webrackets-agency">
+      <WebracketsCard />
+    </Card>
+  </ul>
+</List>
+
+<style lang="scss">
+  .item-container {
+    width: fit-content;
+    display: grid;
+    grid-auto-flow: column;
+    padding-inline: 2.4rem;
+    list-style-type: none;
+
+    gap: var(--gap);
+
+    @media (min-width: 768px) {
+      padding-inline: calc((100vw - 900px) / 2);
+    }
+  }
+</style>

@@ -25,9 +25,7 @@
 
 <div class="projects">
   <div class="scroll-container" bind:this={scrollContainer}>
-    <ul class="item-container">
-      <slot />
-    </ul>
+    <slot />
   </div>
   <nav class="wrapper">
     <div class="arrows">
@@ -64,12 +62,6 @@
 </div>
 
 <style lang="scss">
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
   nav {
     margin-top: 1.6rem;
     display: flex;
@@ -97,19 +89,8 @@
       scroll-padding: calc((100vw - 900px) / 2);
       --gap: 7.2rem;
     }
-  }
-
-  .item-container {
-    width: fit-content;
-    display: grid;
-    grid-auto-flow: column;
-    padding-inline: 2.4rem;
-
-    gap: var(--gap);
-
-    @media (min-width: 768px) {
-      padding-inline: calc((100vw - 900px) / 2);
-    }
+    user-select: none;
+    user-drag: none;
   }
 
   button {
