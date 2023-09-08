@@ -3,7 +3,10 @@ import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
 import me from '../assets/images/me.jpg'
 import ButtonLink from '../components/ButtonLink.astro'
-import List from '../components/Projects/List.astro'
+import List from '../components/Projects/List.svelte'
+import Card from '../components/Projects/Card.astro'
+import MagaliCard from '../components/Projects/Magali/MagaliCard.astro'
+import WebracketsCard from '../components/Projects/Webrackets/WebracketsCard.astro'
 ---
 
 <Layout title="Maxime Condaminat - Frontend Developper">
@@ -26,7 +29,14 @@ import List from '../components/Projects/List.astro'
     </section>
     <section>
       <h2 class="wrapper">selected work</h2>
-      <List />
+      <List client:visible>
+        <Card href="/work/galerie-magali-martin">
+          <MagaliCard />
+        </Card>
+        <Card href="/work/webrackets-agency">
+          <WebracketsCard />
+        </Card>
+      </List>
     </section>
     <div class="wrapper grid-section">
       <section class="past-exp">
@@ -183,7 +193,7 @@ import List from '../components/Projects/List.astro'
   </main>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" ù>
   main {
     background-color: var(--clr-white);
     color: var(--clr-text);

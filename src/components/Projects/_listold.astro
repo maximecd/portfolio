@@ -52,6 +52,7 @@ import WebracketsCard from './Webrackets/WebracketsCard.astro'
 
 <script>
   document.addEventListener('astro:page-load', () => {
+    console.log(`current page: ${window.location.pathname}`)
     const scrollContainer: HTMLDivElement = document.querySelector<HTMLDivElement>(
       '.scroll-container'
     ) as HTMLDivElement

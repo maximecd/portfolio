@@ -9,54 +9,72 @@ import PageView from '../../components/Projects/PageView.astro'
 ---
 
 <Layout title="Galerie Magali Martin | Maxime Condaminat - Frontend Developper">
-  <PageView>
-    <main transition:name="gmm-container" style="view-transition-name: gmm-container;">
-      <div class="container">
-        <header>
-          <ButtonCircle type="link" label="Go Back" href="/">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"></path></svg
-            >
-          </ButtonCircle>
-          <span>home</span>
-        </header>
-        <h1>Galerie Magali Martin</h1>
-        <div class="imgs">
-          <Image src={gmm1} alt="Galerie Magali Martin" />
-          <Image src={gmm2} alt="Galerie Magali Martin" />
-        </div>
+  <main style="view-transition-name: gmm-container;">
+    <div class="container">
+      <header>
+        <a id="back" href="/">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"></path></svg
+          >
+           home
+        </a>
+      </header>
+      <h1>Galerie Magali Martin</h1>
+      <div class="imgs">
+        <Image src={gmm1} alt="Galerie Magali Martin" />
+        <Image src={gmm2} alt="Galerie Magali Martin" />
       </div>
-    </main>
-  </PageView>
+      <a href="https://galeriemagalimartin.fr" target="_blank">Visit website</a>
+    </div>
+  </main>
 </Layout>
 
 <style lang="scss">
+  a#back {
+    padding: 0;
+    display: inline-flex;
+    gap: 0.8rem;
+    padding: 0.8rem 1.6rem;
+    border: none;
+    background-color: rgb(238, 238, 238);
+    border-radius: 99px;
+    color: var(--clr-text-light);
+    cursor: pointer;
+
+    align-items: center;
+    font-family: var(--ff-headings);
+    font-size: 2rem;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgb(212, 212, 212);
+      }
+    }
+    &:active {
+      background-color: rgb(212, 212, 212);
+      color: var(--clr-text);
+    }
+  }
+
   main {
     background-color: #07002c;
   }
   .container {
     padding: 2.4rem;
-  }
-
-  header {
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
-    span {
-      color: #eee;
-      font-family: var(--ff-headings);
-      font-size: 2rem;
-      font-weight: bold;
-    }
   }
 
   h1 {
