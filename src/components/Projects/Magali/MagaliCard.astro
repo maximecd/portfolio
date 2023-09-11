@@ -2,16 +2,12 @@
 import { Image } from 'astro:assets'
 import gmm1 from '../../../assets/images/gmm/gmm1.jpg'
 import gmm2 from '../../../assets/images/gmm/gmm2.jpg'
-import '../../../assets/fonts/audrey.css'
+import logo from '../../../assets/images/gmm/logo-gmm.svg'
 ---
 
 <div class="query-container">
   <div class="container" transition:name="gmm-container">
-    <h3>
-      Galerie<br />
-       Magali<br />
-       Martin
-    </h3>
+    <Image src={logo} alt="Magali Martin" class="logo" transition:name="gmm-logo" />
     <div class="imgs">
       <Image transition:name="gmm-img-1" src={gmm1} alt="Galerie Magali Martin" />
       <Image transition:name="gmm-img-2" src={gmm2} alt="Galerie Magali Martin" />
@@ -24,27 +20,19 @@ import '../../../assets/fonts/audrey.css'
     height: 100%;
   }
   .container {
-    background-color: #07002c;
+    background: linear-gradient(to bottom, #02000e, #0d0149);
+
     display: flex;
     height: 100%;
     display: flex;
     justify-content: space-between;
     padding: 6.6cqi 5.5cqi;
   }
-  h3 {
-    font-size: 9cqi;
-    line-height: 110%;
-    font-family: 'Audrey';
-    text-transform: uppercase;
-    color: white;
-    font-weight: 400;
-  }
-  img {
+  .logo {
     width: 40cqi;
-    object-fit: contain;
     height: fit-content;
-    box-shadow: 0px 2px 10px 1px rgba(255, 255, 255, 0.1);
   }
+
   .imgs {
     display: flex;
     flex-direction: column;
@@ -53,5 +41,12 @@ import '../../../assets/fonts/audrey.css'
       margin-left: 4cqi;
     }
     align-self: center;
+
+    img {
+      width: 40cqi;
+      object-fit: contain;
+      height: fit-content;
+      box-shadow: 0px 2px 10px 1px rgba(255, 255, 255, 0.1);
+    }
   }
 </style>

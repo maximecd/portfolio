@@ -15,10 +15,7 @@ const optimizedGrid = await getImage({
     class="container"
     style={`view-transition-name: webrackets-container; background-image: url('${optimizedGrid.src}');`}
   >
-    <h3>
-      <Image src={logo} alt="webrackets" class="logo" />
-       agency
-    </h3>
+    <Image src={logo} alt="webrackets" class="logo" />
     <div class="home">
       <Image src={home} alt="home" />
     </div>
@@ -42,6 +39,7 @@ const optimizedGrid = await getImage({
   }
   .logo {
     width: 60cqi;
+    height: fit-content;
   }
   h3 {
     font-size: 8cqi;

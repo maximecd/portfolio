@@ -1,0 +1,187 @@
+---
+import { Image } from 'astro:assets'
+const { key, logo, logoalt, title, url } = Astro.props
+---
+
+<main transition:name=`${key}-container`>
+  <div class="container wrapper">
+    <header>
+      <a id="back" href="/" aria-label="Back to home">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-arrow-left-to-line"
+        >
+          <path d="M3 19V5" data-left-bar></path>
+          <path d="m13 6-6 6 6 6" data-arrow></path>
+          <path d="M7 12h14" data-bar></path>
+        </svg>
+      </a>
+    </header>
+
+    <div class="grid">
+      <div class="site-info">
+        <Image class="logo" src={logo} alt={logoalt} transition:name=`${key}-logo` />
+        <span class="title">
+          <h1>
+            <a href={url} target="_blank" title="Visit website">{title}</a>&nbsp;
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-link"
+              ><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path
+                d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg
+            >
+          </h1>
+        </span>
+        <p><strong>Technologies used :</strong></p>
+        <div class="techs">
+          <slot name="techs" />
+        </div>
+      </div>
+      <div class="details">
+        <slot name="details" />
+      </div>
+    </div>
+  </div>
+  <slot name="product-images" />
+</main>
+
+<style lang="scss">
+  :global(a) {
+    color: var(--project-link-color);
+  }
+
+  main {
+    color: var(--project-text-color);
+
+    background: var(--project-background);
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: hidden;
+    gap: 3.2rem;
+  }
+
+  .logo {
+    max-width: 20rem;
+    @media (min-width: 768px) {
+      max-width: 25rem;
+    }
+  }
+
+  .container {
+    width: 100%;
+    padding-top: 3.6rem;
+  }
+  .grid {
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6.4rem;
+    }
+  }
+  .site-info {
+    & > *:not(last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  .techs {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    flex-wrap: wrap;
+    @media (min-width: 768px) {
+      gap: 3.2rem;
+    }
+
+    & > :global(*) {
+      max-height: 2.8rem;
+      @media (min-width: 768px) {
+        max-height: 4.6rem;
+      }
+      transition: transform var(--transition-default);
+      &:hover {
+        transform: rotate(15deg);
+      }
+    }
+  }
+
+  .details {
+    & > :global(*:not(last-child)) {
+      margin-bottom: 1em;
+    }
+  }
+
+  .title {
+    font-size: 3.6rem;
+    @media (min-width: 768px) {
+      font-size: 4.8rem;
+    }
+    margin-bottom: 1em;
+    display: block;
+  }
+  h1 {
+    font-family: 'Cal Sans';
+    text-transform: lowercase;
+    font-weight: 400;
+    font-size: inherit;
+    a {
+      color: var(--work-text-color);
+    }
+    svg {
+      display: inline-block;
+      letter-spacing: 1rem;
+    }
+  }
+
+  a#back {
+    margin-bottom: 3.2rem;
+    display: inline-flex;
+
+    @media (min-width: 768px) {
+      margin-bottom: 6.4rem;
+    }
+
+    color: white;
+    svg {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+
+    [data-left-bar],
+    [data-arrow],
+    [data-bar] {
+      transition: var(--transition-default);
+    }
+
+    &:hover,
+    &:focus {
+      [data-left-bar] {
+        opacity: 0;
+      }
+      [data-bar],
+      [data-arrow] {
+        transform: translateX(-5px);
+      }
+    }
+  }
+</style>
