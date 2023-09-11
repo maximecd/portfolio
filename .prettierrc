@@ -3,7 +3,7 @@
   "trailingComma": "none",
   "semi": false,
   "printWidth": 120,
-  "plugins": ["prettier-plugin-astro", "prettier-plugin-svelte"],
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-vue"],
   "pluginSearchDirs": false,
   "quoteProps": "consistent"
 }

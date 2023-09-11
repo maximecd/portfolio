@@ -3,7 +3,6 @@ import { Image } from 'astro:assets'
 import gmm1 from '../../../assets/images/gmm/gmm1.jpg'
 import gmm2 from '../../../assets/images/gmm/gmm2.jpg'
 import '../../../assets/fonts/audrey.css'
-import { fade } from 'astro:transitions'
 ---
 
 <div class="query-container">
@@ -14,12 +13,7 @@ import { fade } from 'astro:transitions'
        Martin
     </h3>
     <div class="imgs">
-      <Image
-        transition:name="gmm-img-1"
-        transition:animate={fade({ duration: '4.4s' })}
-        src={gmm1}
-        alt="Galerie Magali Martin"
-      />
+      <Image transition:name="gmm-img-1" src={gmm1} alt="Galerie Magali Martin" />
       <Image transition:name="gmm-img-2" src={gmm2} alt="Galerie Magali Martin" />
     </div>
   </div>
