@@ -19,7 +19,6 @@
     "cssnano": "^6.0.1",
     "sass": "^1.66.1",
     "sharp": "^0.32.5",
-    "swiper": "^10.2.0",
     "vue": "^3.2.30"
   },
   "devDependencies": {

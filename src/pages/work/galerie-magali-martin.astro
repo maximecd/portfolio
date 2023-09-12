@@ -11,7 +11,7 @@ import JS from '../../components/Technologies/JS.astro'
 import Project from '../../layouts/Project.astro'
 import MagaliSlider from '../../components/Projects/Magali/MagaliSlider.vue'
 
-const projectUrl = 'https://galeriemagalimartin/fr'
+const projectUrl = 'https://galeriemagalimartin.fr'
 const gmm1opti = await getImage({ src: gmm1 })
 const gmm2opti = await getImage({ src: gmm2 })
 ---
@@ -34,8 +34,18 @@ const gmm2opti = await getImage({ src: gmm2 })
     <MagaliSlider
       client:load
       slot="product-images"
-      images={[gmm1opti, gmm2opti]}
+      images={[
+        {
+          src: gmm1opti.src,
+          key: 'gmm-img-1'
+        },
+        {
+          src: gmm2opti.src,
+          key: 'gmm-img-2'
+        }
+      ]}
       alt="Capture d'écran du site Galerie Magali Martin"
+      url={projectUrl}
     />
   </Project>
 </Layout>
@@ -45,29 +55,5 @@ const gmm2opti = await getImage({ src: gmm2 })
     --project-text-color: #ffffff;
     --project-background: linear-gradient(to bottom, #02000e, #0d0149);
     --project-link-color: rgb(255, 155, 213);
-  }
-
-  .imgs {
-    display: flex;
-    @media (min-width: 768px) {
-      flex-direction: row;
-      max-width: 1500px;
-      margin-inline: auto;
-      width: 100%;
-      justify-content: space-between;
-      transform: translateY(20%);
-      gap: 3.6rem;
-      padding-inline: 2.4rem;
-    }
-
-    img {
-      box-shadow: 0px 2px 10px 1px rgba(255, 255, 255, 0.1);
-      @media (min-width: 768px) {
-        transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-        &:hover {
-          transform: translateY(-10%);
-        }
-      }
-    }
   }
 </style>

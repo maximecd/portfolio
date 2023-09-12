@@ -32,9 +32,6 @@ dependencies:
   sharp:
     specifier: ^0.32.5
     version: 0.32.5
-  swiper:
-    specifier: ^10.2.0
-    version: 10.2.0
   vue:
     specifier: ^3.2.30
     version: 3.3.4
@@ -3736,11 +3733,6 @@ packages:
       css-tree: 2.3.1
       csso: 5.0.5
       picocolors: 1.0.0
-    dev: false
-
-  /swiper@10.2.0:
-    resolution: {integrity: sha512-nktQsOtBInJjr3f5DicxC8eHYGcLXDVIGPSon0QoXRaO6NjKnATCbQ8SZsD3dN1Ph1RH4EhVPwSYCcuDRFWHGQ==}
-    engines: {node: '>= 4.7.0'}
     dev: false
 
   /tar-fs@2.1.1:
