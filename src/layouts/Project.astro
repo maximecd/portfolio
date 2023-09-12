@@ -115,9 +115,11 @@ const { key, logo, logoalt, title, url, style } = Astro.props
 
     & > :global(*) {
       max-height: 2.8rem;
+      width: 2.8rem;
       aspect-ratio: 1/1;
       @media (min-width: 768px) {
         max-height: 4.6rem;
+        width: 4.6rem;
       }
       transition: transform var(--transition-default);
       &:hover {
