@@ -1,15 +1,15 @@
 ---
 import { Image, getImage } from 'astro:assets'
 import Layout from '../../layouts/Layout.astro'
-import gmm1 from '../../assets/images/gmm/gmm1.jpg'
-import gmm2 from '../../assets/images/gmm/gmm2.jpg'
+import gmm1 from '../../assets/images/gmm/gmm-home.jpg'
+import gmm2 from '../../assets/images/gmm/gmm-menu.jpg'
 import logoGmm from '../../assets/images/gmm/logo-gmm.svg'
 import Gulp from '../../components/Technologies/Gulp.astro'
 import Wordpress from '../../components/Technologies/Wordpress.astro'
 import Sass from '../../components/Technologies/Sass.astro'
 import JS from '../../components/Technologies/JS.astro'
 import Project from '../../layouts/Project.astro'
-import MagaliSlider from '../../components/Projects/Magali/MagaliSlider.vue'
+import ImagesSlider from '../../components/Projects/ImagesSlider.vue'
 
 const projectUrl = 'https://galeriemagalimartin.fr'
 const gmm1opti = await getImage({ src: gmm1 })
@@ -31,8 +31,8 @@ const gmm2opti = await getImage({ src: gmm2 })
       </p>
       <p>We created an ecommerce site for Magali Martin, photographer, so that she could sell her prints.</p>
     </Fragment>
-    <MagaliSlider
-      client:load
+    <ImagesSlider
+      client:visible
       slot="product-images"
       images={[
         {
@@ -55,5 +55,6 @@ const gmm2opti = await getImage({ src: gmm2 })
     --project-text-color: #ffffff;
     --project-background: linear-gradient(to bottom, #02000e, #0d0149);
     --project-link-color: rgb(255, 155, 213);
+    --box-shadow: 0px 2px 10px 1px rgba(255, 255, 255, 0.1);
   }
 </style>

@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets'
-const { key, logo, logoalt, title, url } = Astro.props
+const { key, logo, logoalt, title, url, style } = Astro.props
 ---
 
-<main transition:name=`${key}-container`>
+<main transition:name=`${key}-container` style={style}>
   <div class="container wrapper">
     <header>
       <a id="back" href="/" aria-label="Back to home">
@@ -31,21 +31,21 @@ const { key, logo, logoalt, title, url } = Astro.props
         <Image class="logo" src={logo} alt={logoalt} transition:name=`${key}-logo` />
         <span class="title">
           <h1>
-            <a href={url} target="_blank" title="Visit website">{title}</a>&nbsp;
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-link"
-              ><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path
-                d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg
+            <a href={url} target="_blank" title="Visit website"
+              >{title}<svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-link"
+                ><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path
+                  d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg
+              ></a
             >
           </h1>
         </span>
@@ -115,6 +115,7 @@ const { key, logo, logoalt, title, url } = Astro.props
 
     & > :global(*) {
       max-height: 2.8rem;
+      aspect-ratio: 1/1;
       @media (min-width: 768px) {
         max-height: 4.6rem;
       }
@@ -150,6 +151,7 @@ const { key, logo, logoalt, title, url } = Astro.props
     svg {
       display: inline-block;
       letter-spacing: 1rem;
+      margin-left: 1.6rem;
     }
   }
 
@@ -161,7 +163,8 @@ const { key, logo, logoalt, title, url } = Astro.props
       margin-bottom: 6.4rem;
     }
 
-    color: white;
+    color: inherit;
+
     svg {
       width: 3.2rem;
       height: 3.2rem;

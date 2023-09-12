@@ -3,51 +3,80 @@ import { Image, getImage } from 'astro:assets'
 import Layout from '../../layouts/Layout.astro'
 import ButtonCircle from '../../components/ButtonCircle.astro'
 import grid from '../../assets/images/webrackets/grille.svg'
+import Project from '../../layouts/Project.astro'
+import logo from '../../assets/images/webrackets/logo.svg'
+import JS from '../../components/Technologies/JS.astro'
+import Vite from '../../components/Technologies/Vite.astro'
+import GSAP from '../../components/Technologies/GSAP.astro'
+import Sass from '../../components/Technologies/Sass.astro'
+import ImagesSlider from '../../components/Projects/ImagesSlider.vue'
+import homeImg from '../../assets/images/webrackets/webrackets-home.jpg'
+import servicesImg from '../../assets/images/webrackets/webrackets-services.jpg'
 
 const optimizedGrid = await getImage({
   src: grid
 })
+
+const optimizedHome = await getImage({
+  src: homeImg
+})
+
+const optimizedServices = await getImage({
+  src: servicesImg
+})
+
+const projectUrl = 'https://agence-webrackets.lpmiaw.univ-lr.fr/'
 ---
 
 <Layout title="Webrackets Agency | Maxime Condaminat - Frontend Developper">
-  <main
-    transition:name="webrackets-container"
-    style=`view-transition-name: webrackets-container;  background-image: url('${optimizedGrid.src}');`
+  <Project
+    style={`--project-background: url(${optimizedGrid.src}), #fffad9`}
+    key="webrackets"
+    url={projectUrl}
+    logo={logo}
+    logoalt="webrackets"
+    title="Webrackets Agency"
   >
-    <div class="container">
-      <ButtonCircle type="link" label="Go Back" href="/">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"></path></svg
-        >
-      </ButtonCircle>
-      <h1>Webrackets Agency</h1>
-    </div>
-  </main>
+    <Fragment slot="techs">
+      <GSAP />
+      <JS />
+      <Sass />
+      <Vite />
+    </Fragment>
+    <Fragment slot="details">
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam beatae optio saepe, impedit, cumque quod
+        veritatis libero, animi neque asperiores reprehenderit delectus sunt perferendis voluptatem.
+      </p>
+      <p>
+        Facere atque quam quis repellat, delectus enim laboriosam a deserunt aliquid nisi perspiciatis accusantium,
+        totam ad quidem qui. Repudiandae recusandae perspiciatis natus ducimus consequatur asperiores?
+      </p>
+    </Fragment>
+    <ImagesSlider
+      url={projectUrl}
+      alt="Capture d'écran du site Webrackets"
+      images={[
+        {
+          src: optimizedHome.src
+        },
+        {
+          src: optimizedServices.src
+        }
+      ]}
+      client:visible
+      slot="product-images"
+    />
+  </Project>
 </Layout>
 
 <style lang="scss">
-  .container {
-    padding: 2.4rem;
+  :root {
+    --project-text-color: #29314d;
+    --project-link-color: rgb(255, 155, 213);
+    --box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.2);
   }
-
   h1 {
-    font-family: 'Righteous';
-    text-transform: lowercase;
-  }
-
-  main {
-    background-color: #fffad9;
-    min-height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
+    color: var(--test);
   }
 </style>

@@ -13,11 +13,12 @@ const optimizedGrid = await getImage({
 <div class="query-container">
   <div
     class="container"
-    style={`view-transition-name: webrackets-container; background-image: url('${optimizedGrid.src}');`}
+    transition:name="webrackets-container"
+    style={`background-image: url('${optimizedGrid.src}');`}
   >
-    <Image src={logo} alt="webrackets" class="logo" />
+    <Image src={logo} alt="webrackets" class="logo" transition:name="webrackets-logo" />
     <div class="home">
-      <Image src={home} alt="home" />
+      <Image src={home} alt="Menu de la première page de Webrackets" />
     </div>
   </div>
 </div>
