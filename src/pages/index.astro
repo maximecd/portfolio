@@ -103,15 +103,28 @@ import Slider from '../components/Projects/Slider.astro'
           <strong>looking for a new role</strong> as a <strong>frontend developer</strong>.
         </p>
         <p>
-          I have experience using frontend frameworks (or "meta-frameworks" 😅) such as <strong>React</strong>/<strong
-            >NextJS</strong
-          > or <strong>Svelte</strong>(Kit), but I'm always happy to learn new things.
+          I am currently learning <strong>creative developement</strong>, the art of creating immersive web experiences
+          by leveraging different effects and animations. You can find my experiments on my <a
+            href="https://github.com/maximecd"
+            target="_blank">github</a
+          > profile !
         </p>
         <p>
-          For instance, this portfolio was built using <strong>Astro</strong>, leveraging the brand new <strong
-            >View Transitions API</strong
-          >. Interactions are managed with <strong>Vue 3</strong>. I designed it with <strong>Figma</strong>, and
-          deployed it on the edge through <strong>Vercel</strong>.
+          My most recents :
+          <ul>
+            <li>
+              <a href="https://labs.maximecd.com/" target="_blank">Labs</a> : NextJS + Framer motion animated modern
+              components
+              <a href="https://github.com/maximecd/labs" target="_blank"><code>[source]</code></a>
+            </li>
+            <li>
+              <a href="https://slider-menu-effect.vercel.app/" target="_blank">Menu slider animation</a> : An animated
+              menu rebuild : React, PandaCSS and GSAP
+              <a href="https://github.com/maximecd/slider-menu-effect" target="_blank">
+                <code>[source]</code>
+              </a>
+            </li>
+          </ul>
         </p>
       </section>
     </div>
@@ -312,6 +325,11 @@ import Slider from '../components/Projects/Slider.astro'
     }
     p:not(:last-child) {
       margin-bottom: 1em;
+    }
+
+    a:has(> code) {
+      font-size: 1.2rem;
+      color: rgb(43, 33, 47);
     }
   }
 
