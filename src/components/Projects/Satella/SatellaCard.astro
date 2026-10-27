@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets'
+import dashboard from '../../../assets/images/satella/dashboard.png'
+import logo from '../../../assets/images/satella/logo.svg'
+---
+
+<div class="query-container">
+  <div class="container" transition:name="satella-container">
+    <div class="brand">
+      <Image src={logo} alt="Satella" class="logo" transition:name="satella-logo" />
+      <p>satella</p>
+    </div>
+    <Image
+      src={dashboard}
+      alt="Satella dashboard"
+      class="dashboard"
+      widths={[900, 1800]}
+      sizes="(min-width: 768px) 900px, 100vw"
+      transition:name="satella-img-1"
+    />
+  </div>
+</div>
+<style lang="scss">
+  .query-container {
+    container-type: inline-size;
+    height: 100%;
+  }
+  .container {
+    background: linear-gradient(to top right, #4a2c61, #a372c3);
+    height: 100%;
+    position: relative;
+    padding: 6.6cqi 5.5cqi;
+    overflow: hidden;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 2.4cqi;
+    color: #fff;
+    font-family: var(--ff-headings);
+    font-size: 6cqi;
+    line-height: 1;
+  }
+  .logo {
+    width: 9cqi;
+    height: auto;
+    border-radius: 2cqi;
+    box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.2);
+  }
+  .dashboard {
+    position: absolute;
+    width: 72cqi;
+    height: auto;
+    right: -4cqi;
+    bottom: -10cqi;
+    border-radius: 1.2cqi;
+    box-shadow: 0px 8px 32px 4px rgba(0, 0, 0, 0.3);
+  }
+</style>

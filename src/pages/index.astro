@@ -6,7 +6,7 @@ import ButtonLink from '../components/ButtonLink.astro'
 import Slider from '../components/Projects/Slider.astro'
 ---
 
-<Layout title='Maxime Condaminat - Frontend Developper'>
+<Layout title='Maxime Condaminat - Front-end Engineer'>
   <main>
     <section class='wrapper hero'>
       <h1>
@@ -15,12 +15,13 @@ import Slider from '../components/Projects/Slider.astro'
       </h1>
       <div>
         <p>
-          Hi 👋, I’m Maxime, a fullstack developer based in France. I’m here to make the web a more user-friendly and
-          accessible place.
+          Hi 👋, I’m Maxime, a front-end engineer based in France. I build products with
+          TypeScript and React, and I’ve spent the last 3 years in web3.
         </p>
         <p>
-          I am currently <strong>open for some freelance work</strong>.
-          <a href='mailto:contact@maximecd.com'>Let's talk ?</a>
+          I am currently <strong>looking for my next role</strong>, ideally on a larger-scale product where I can grow
+          toward tech lead.
+          <a href='mailto:contact@maximecd.com'>Let's talk?</a>
         </p>
       </div>
     </section>
@@ -33,23 +34,42 @@ import Slider from '../components/Projects/Slider.astro'
         <h2>past experiences</h2>
         <ul class='past-exp__list'>
           <li>
-            <span class='past-exp__date'>sept. 2023 - now</span>
-            <h3>Fullstack Developer</h3>
-            <h4>Freelance</h4>
+            <span class='past-exp__date'>june 2024 - july 2026</span>
+            <h3>Full-stack Developer</h3>
+            <h4>nüme</h4>
             <p>
-              Delivered a wide range of projects for clients, from internal company tools to complex Web3 apps. Mainly
-              working with TypeScript, but still a pinch of PHP 🙂
+              Joined the early team of an art digitisation startup and built the software side from scratch: a
+              platform where owners browse their artworks, with records stored on-chain through ERC-4337 smart
+              accounts, a block explorer for our contracts, and a Tauri desktop app driving an art-scanning robot. I
+              also set up the infrastructure, from Docker and CI/CD to Coolify deployments and Cloudflare.
             </p>
             <ul class='techs'>
-              <li>NextJS</li>
-              <li>SvelteKit</li>
-              <li>AdonisJS</li>
+              <li>React</li>
+              <li>Laravel</li>
+              <li>Tauri</li>
+              <li>viem</li>
+              <li>Docker</li>
+            </ul>
+          </li>
+          <li>
+            <span class='past-exp__date'>sept. 2023 - now</span>
+            <h3>Full-stack Developer</h3>
+            <h4>Freelance</h4>
+            <p>
+              Built a full NFT marketplace for premium spirits from scratch and contributed to other NFT sales
+              platforms, connecting the front end to smart contracts with wallet-based flows. Shipped features end to
+              end on a Laravel SaaS used by several thousand users.
+            </p>
+            <ul class='techs'>
+              <li>Next.js</li>
+              <li>wagmi</li>
+              <li>viem</li>
               <li>Laravel</li>
             </ul>
           </li>
           <li>
             <span class='past-exp__date'>sept. 2022 - aug. 2023</span>
-            <h3>Fullstack Web Developer</h3>
+            <h3>Full-stack Developer (work-study)</h3>
             <h4>Nexi Conseils</h4>
             <p>
               Developed, maintained and shipped features on a 2000+ users SaaS. Built 6 fully customizable WordPress
@@ -57,31 +77,9 @@ import Slider from '../components/Projects/Slider.astro'
             </p>
             <ul class='techs'>
               <li>Laravel</li>
-              <li>ReactJS</li>
+              <li>React</li>
               <li>WordPress</li>
               <li>Sass</li>
-            </ul>
-          </li>
-          <li>
-            <span class='past-exp__date'>jan. 2022 - feb. 2022</span>
-            <h3>Web Developer</h3>
-            <h4>ISAO Communication</h4>
-            <p>Design, built and shipped a fully customizable website for a communication agency.</p>
-            <ul class='techs'>
-              <li>Figma</li>
-              <li>WordPress</li>
-              <li>Deployement</li>
-            </ul>
-          </li>
-          <li>
-            <span class='past-exp__date'>may 2021 - june 2021</span>
-            <h3>PHP Developer</h3>
-            <h4>L'amicale des cadres d'Alstom</h4>
-            <p>Developed features for a native MVC PHP application, using sprint agile methodologies</p>
-            <ul class='techs'>
-              <li>PHP</li>
-              <li>MySQL</li>
-              <li>Bootstrap</li>
             </ul>
           </li>
         </ul>
@@ -108,31 +106,31 @@ import Slider from '../components/Projects/Slider.astro'
         <h2>about me</h2>
         <Image src={me} alt='Maxime Condaminat' />
 
-        <p>Hello! I'm <strong>Maxime</strong>, a French web developer passionate about enhancing UX/UI experiences.</p>
-
         <p>
-          Although I recently graduated as a <strong>Fullstack Developer</strong> from the University of La Rochelle,
-          I've discovered that my true passion lies in improving the user experience and interface of applications using
-          modern approaches.
+          Hello! I'm <strong>Maxime</strong>, a French front-end engineer with 4 years of experience, 3 of them in
+          web3. I like owning features end to end, with a lot of autonomy.
         </p>
 
         <p>
-          After completing my internship, I decided to focus on frontend development while maintaining a keen interest
-          in Fullstack development. Currently, I'm actively seeking freelance opportunities where I can apply my skills
-          as a <strong>Fullstack developer</strong>, specializing in frontend development.
+          Day to day I work with <strong>React and TanStack</strong> (Start, Router, Query), Jotai or Zustand, Tailwind
+          or StyleX, and Base UI. On the web3 side: viem, wagmi, passwordless wallet onboarding with embedded wallets
+          and passkeys, and ERC-4337 smart accounts. I've also shipped desktop apps with Electron and Tauri.
         </p>
 
         <p>
-          I have knowledge across the development spectrum, from <strong>good old Dockerfiles</strong> to <strong
-            >modern TypeScript frontend frameworks</strong
-          >. With a particular affection for frontend and UI/UX, I'm delving into creative development, exploring the
-          art of crafting immersive web experiences through various effects and animations. You can find my experiments
-          on my <a href='https://github.com/maximecd' target='_blank'>GitHub profile</a>!
+          I graduated as a <strong>Full-stack Developer</strong> from La Rochelle Université, and I still work across
+          the stack: Node.js and Bun with Hono and Effect, and a lot of Laravel. Knowing what the backend needs makes
+          me a better front-end engineer.
         </p>
 
         <p>
           My most recents :
           <ul>
+            <li>
+              <a href='/work/satella'>Satella</a> : a local-first, encrypted portfolio tracker built with Effect and
+              React
+              <a href='https://github.com/maximecd/satella' target='_blank'><code>[source]</code></a>
+            </li>
             <li>
               <a href='https://labs.maximecd.com/' target='_blank'>Labs</a> : NextJS + Framer motion animated modern
               components
