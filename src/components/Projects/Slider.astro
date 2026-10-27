@@ -1,12 +1,16 @@
 ---
 import Card from './Card.astro'
 import List from './List.vue'
+import SatellaCard from './Satella/SatellaCard.astro'
 import MagaliCard from './Magali/MagaliCard.astro'
 import WebracketsCard from './Webrackets/WebracketsCard.astro'
 ---
 
 <List client:visible>
   <ul class="item-container">
+    <Card href="/work/satella">
+      <SatellaCard />
+    </Card>
     <Card href="/work/galerie-magali-martin">
       <MagaliCard />
     </Card>

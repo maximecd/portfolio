@@ -1,0 +1,69 @@
+---
+import { getImage } from 'astro:assets'
+import Layout from '../../layouts/Layout.astro'
+import dashboard from '../../assets/images/satella/dashboard.png'
+import logo from '../../assets/images/satella/logo.svg'
+import TypeScript from '../../components/Technologies/TypeScript.astro'
+import React from '../../components/Technologies/React.astro'
+import Effect from '../../components/Technologies/Effect.astro'
+import Vite from '../../components/Technologies/Vite.astro'
+import Project from '../../layouts/Project.astro'
+import ImagesSlider from '../../components/Projects/ImagesSlider.vue'
+
+const projectUrl = 'https://github.com/maximecd/satella'
+const dashboardOpti = await getImage({ src: dashboard, width: 1800 })
+---
+
+<Layout title="Satella | Maxime Condaminat - Front-end Engineer">
+  <Project key="satella" url={projectUrl} logo={logo} logoalt="Satella" title="Satella">
+    <Fragment slot="techs">
+      <TypeScript />
+      <React />
+      <Effect />
+      <Vite />
+    </Fragment>
+    <Fragment slot="details">
+      <p>
+        <strong>Satella</strong> is a private, local-first home for your financial life. It brings bank accounts,
+        brokerage accounts, exchanges and on-chain wallets into one portfolio that runs entirely on your machine. No
+        account, no cloud, no telemetry.
+      </p>
+      <p>
+        Data lives in an encrypted Vault: an Argon2id-derived key and AES-256-GCM over the whole SQLite database, so
+        connector credentials never touch disk in plaintext. Read-only connectors sync Interactive Brokers, Kraken, OKX
+        and EVM wallets (through viem), and an MCP server lets a local AI agent read the unlocked portfolio.
+      </p>
+      <p>
+        It is a pnpm monorepo: an <strong>Effect</strong> HTTP engine, a <strong>React 19</strong> UI built on TanStack
+        Router, Query and Form, and one package per connector. Source code is on
+        <a href={projectUrl} target="_blank">GitHub</a>.
+      </p>
+    </Fragment>
+    <ImagesSlider
+      client:visible
+      slot="product-images"
+      images={[
+        {
+          src: dashboardOpti.src,
+          key: 'satella-img-1'
+        }
+      ]}
+      alt="Satella dashboard with sample data"
+      url={projectUrl}
+    />
+  </Project>
+</Layout>
+
+<style lang="scss">
+  :global(:root) {
+    --project-text-color: #ffffff;
+    --project-background: linear-gradient(to bottom, #2b1a38, #4a2c61);
+    --project-link-color: #e3c6f5;
+    --box-shadow: 0px 8px 32px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  :global(main .site-info .logo) {
+    max-width: 9.6rem;
+    border-radius: 2rem;
+  }
+</style>
